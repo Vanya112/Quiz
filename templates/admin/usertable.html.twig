@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('asset/jsGrid/jsgrid.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('asset/jsGrid/jsgrid-theme.min.css') }}">
+    <script type="text/javascript" charset="utf8" src="{{ asset('asset/jsGrid/jsgrid.min.js') }}"></script>
+    <script type="text/javascript" charset="utf8" src="{{ asset('asset/js/usertable.js') }}"></script>
+    <style>
+        .jsgrid-row>.jsgrid-cell { background: #ffffff3d;}
+        .jsgrid-alt-row>.jsgrid-cell {background: #ffffff8c;}
+        .jsgrid-cell {border: 1px solid #7b7b7b;}
+        .jsgrid-edit-row>.jsgrid-cell, .jsgrid-filter-row>.jsgrid-cell, .jsgrid-grid-body, .jsgrid-grid-header, .jsgrid-header-row>.jsgrid-header-cell, .jsgrid-insert-row>.jsgrid-cell {
+            border: 1px solid #3e3e3e;}
+        .jsgrid-filter-row>.jsgrid-cell{background: #3a3a3a;}
+        .jsgrid-edit-row input, .jsgrid-edit-row select, .jsgrid-edit-row textarea, .jsgrid-filter-row input, .jsgrid-filter-row select, .jsgrid-filter-row textarea, .jsgrid-insert-row input, .jsgrid-insert-row select, .jsgrid-insert-row textarea {
+            width: 100%; padding: .3em .5em; background: #8c8989;}
+        .jsgrid-header-row>.jsgrid-header-cell {background: #232323; color: silver;}
+    </style>
+    <div id="grid"></div>
+{% endblock %}
