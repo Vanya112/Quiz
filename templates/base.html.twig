@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>{% block title %}{%endblock%} | Symfony 4 </title>
+    <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/base.css') }}">
+    {% block head %} {% endblock %}
+
+    {% block stylesheets %}{% endblock %}
+</head>
+
+
+<body>
+<script type="text/javascript" src="{{ asset('asset/js/jquery-3.3.1.js') }}"></script>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">HOME </a>
+        </div>
+        <ul class="nav navbar-nav">
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="/usertable">User table</a></li>
+                <li><a href="/gameshow/create">Quiz table</a></li>
+            {% endif %}
+                <li><a href="/gameshow">Games</a></li>
+            {% block toolbar %}{% endblock %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="nav navbar-nav"
+                 style ="position:absolute;
+                 top:0;
+                 right:0;
+                 float:right;"><a href="/logout">{{ app.user.username }} | logout</a></li>
+            {% else %}
+                <li class="nav navbar-nav"
+                 style ="
+                 position:absolute;
+                 top:0;
+                 right:0;
+                 float:right;"><a href="/login">Login</a></li>
+            {% endif %}
+        </ul>
+
+
+    </div>
+</nav>
+<div id="message_notice">
+    {% for flashMessage in app.session.flashbag.get('notice')%}
+        {{ flashMessage }}
+    {% endfor %}
+</div>
+<div class="wrapper_body">
+    <div class="container_body">
+        {% block body %} {% endblock%}
+    </div>
+</div>
+
+
+</body>
+</html>

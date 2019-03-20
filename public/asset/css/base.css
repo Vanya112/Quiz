@@ -1,0 +1,63 @@
+body {
+    background: #F5F6F500;
+}
+
+html
+{
+
+    background: url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar-default {
+    background-color: #232323;
+    border-color: #333232;
+    box-shadow: 0 0 4px 2px black;
+}
+
+a.center
+{
+    text-align: center;
+    font-size: 24px;
+    color: #5c5a5a;
+    height: 30%;
+    width: 200px;
+}
+
+div.register
+{
+    width: 200px;
+    height: 30%;
+    margin-left: 42%;
+    background: #161616;
+    box-shadow:0 0 8px 4px #161616;
+    color:#161616;
+}
+
+button {
+    background-color: #383938;
+    border: 4px black;
+    color: #bab5b5;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    box-shadow: 0 0 4px 2px #080707;
+}
+
+
+
+
+div.loggincss
+{
+    width: 200px;
+    height: 40%;
+    margin-left: 42%;
+    background: #161616;
+    text-align: center;
+    box-shadow:0 0 8px 4px #161616;
+    color: #2020f8;
+    text-shadow: 0 6px 8px black;
+}

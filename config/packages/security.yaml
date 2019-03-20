@@ -1,0 +1,57 @@
+security:
+    encoders:
+        App\Entity\User: bcrypt
+    providers:
+        user:
+            entity:
+                class: App\Entity\User
+                property: username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            form_login:
+                provider: user
+                login_path: login
+                check_path: login
+                post_only:  true
+                default_target_path: logged
+            logout:
+                path:   /logout
+
+
+
+
+
+
+
+
+
+#
+#    firewalls:
+#        dev:
+#            pattern: ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+#        main:
+#            http_basic: ~
+#            anonymous: true
+#
+#    providers:
+#        in_memory:
+#            memory:
+#                users:
+#                    ryan:
+#                        password: $2y$12$6qBrRbKnxeL3MoiH4yI.quQ0WslH20UVvqJduYCsKVijHrIuE31YG #1111
+#                        roles: 'ROLE_USER'
+#                    admin:
+#                        password: $2y$12$e6ddBJzH0YW/fCguaYdXy.Tn4tIuCGRaqONWmiOqgyvPsFqkXOG6e
+#                        roles: 'ROLE_ADMIN'
+#
+#    encoders:
+#        Symfony\Component\Security\Core\User\User:
+#            algorithm: bcrypt
+#            cost: 12
+    access_control:
+        - { path: ^/usertable, roles: ROLE_ADMIN }
