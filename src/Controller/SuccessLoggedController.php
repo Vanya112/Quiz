@@ -9,5 +9,9 @@ class SuccessLoggedController extends AbstractController
     /**
      * @Route("/logged", name="logged")
      */
+    public function logged()
+    {
+        return $this->redirectToRoute('homeController',array('type'=>"logging"),301);
+    }
 
 }
