@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        .error{background: #efefef66;
+            width: 50%;
+            margin-left: 25%;
+            margin-top: 10%;
+        border-radius:16px}
+
+    </style>
+
+    <div class="error"><center>
+    <h1>Page not found</h1>
+
+    <p>
+        The requested page couldn't be located. Checkout for any URL
+        misspelling or <a href="{{ path('homeController') }}">return to the homepage</a>.
+    </p>
+        </center>
+    </div>
+{% endblock %}
