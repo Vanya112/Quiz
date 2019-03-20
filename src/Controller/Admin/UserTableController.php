@@ -17,6 +17,6 @@ class UserTableController extends AbstractController
      */
     public function home(UserRepository $userRepository)
     {
-        
+        return $this->render('admin/usertable.html.twig', ['user' => $userRepository->findAll()]);
     }
 }
