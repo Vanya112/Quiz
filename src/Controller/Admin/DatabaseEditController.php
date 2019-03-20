@@ -12,5 +12,10 @@ use App\Services\Admin\filterUser;
 
 class DatabaseEditController
 {
-
+	public function find(){
+        	$delete = new deleteUser();
+        	$filter = new filterUser();
+        	$edit = new editUser();
+        	$services = array("delete","edit","filter");
+    	}
 }
