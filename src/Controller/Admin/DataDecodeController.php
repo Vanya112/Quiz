@@ -12,8 +12,10 @@ use Symfony\Component\Serializer\Serializer;
 
 class DataDecodeController
 {
-	public function DecodeStringToArray()
-	{
-		
-	}
+    public function DecodeStringToArray($data)
+    {
+    	$decode_data = json_decode($data, true);
+        return $decode_data;
+    }
+
 }
