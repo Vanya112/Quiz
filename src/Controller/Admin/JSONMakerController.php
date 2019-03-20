@@ -17,7 +17,19 @@ class JSONMakerController extends AbstractController
      */
     public function ajaxUserTable(string $format)
     {
-        
+        $filter = new filterUser();
+        $request = Request::createFromGlobals();
+        $username = $request->query->get('username');
+        $id = $request->query->get('id');
+        $email = $request->query->get('email');
+        if ($format == 'json') {
+            $repository = $this->getDoctrine()->getRepository(User::class);
+            $data = $repository->findAll();
+            $filter_data = $filter->filterData($data, $username, $email, $id);
+
+            return $filter_data;
+        }
+        return $this->render('bundles/TwigBundle/Exception/error404.html.twig');
     }
 
 }
