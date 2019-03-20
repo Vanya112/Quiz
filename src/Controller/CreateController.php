@@ -52,7 +52,59 @@ class CreateController extends AbstractController
         return $this->render('show/quiz.html.twig', ['quizzes' => $quizRepository->findAll()]);
     }
 
-    
+    /**
+     * @Route("/gameshow/create/quiz/{quiz_id}/create", name="create_question", requirements={"quiz_id"="\d+"})
+     */
+    public function createQuestion(int $quiz_id, Request $request, QuizRepository $quizRepository)
+    {
+        $question = new Question();
+        $form = $this->createForm(QuestionType::class, $question);
+        $answer = new Answer();
+        $form_answer = $this->createForm(AnswerType::class, $answer);
+        $form->handleRequest($request);
+        $form_answer->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $question = $form->getData();
+            $answer = $form_answer->getData();
+            $answer->setIsCorrect(true);
+            $question->addAnswer($answer);
+            $quiz = $quizRepository->find($quiz_id);
+            $question->addQuiz($quiz);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($question);
+            $entityManager->flush();
+            return $this->redirectToRoute('show_admin_quizzes');
+        }
+        return $this->render(
+            'creater/question.html.twig',
+            ['form' => $form->createView(), 'answer' => $form_answer->createView()]);
+    }
+
+    /**
+     * @Route("/gameshow/create/quiz/{quiz_id}/question/{question_id}/create", name="create_answer",
+     *  requirements={"quiz_id"="\d+", "question_id"="\d+"})
+     */
+    public function createAnswer(int $quiz_id, int $question_id, Request $request, QuestionRepository $questionRepository)
+    {
+        $answer = new Answer();
+        $form = $this->createForm(AnswerType::class, $answer);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $answer = $form->getData();
+            $answer->setIsCorrect(false);
+            $question = $questionRepository->find($question_id);
+            $answer->setQuestion($question);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($answer);
+            $entityManager->flush();
+            return $this->redirect('success');
+        }
+        return $this->render(
+            'creater/answer.html.twig',
+            array('form' => $form->createView())
+        );
+    }
+
     /**
      * @Route("/gameshow/create/success", name="success_create_quiz")
      */
