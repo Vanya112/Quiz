@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <style type="text/css">
+        .create{background: #fcfafa99;width: 500px; margin-left: 32%; border-radius: 24px}
+        table {width: 50%; /* Ширина таблицы */}
+        button {background-color: #383938;border: 4px black;color: #bab5b5;padding: 12px 32px; width: 70%;;
+            text-align: center;text-decoration: none;display: inline-block;font-size: 20px;box-shadow: 0 0 4px 2px #080707;}
+        td { padding: 5px; }
+        tr.col1 { background: #ffbf50; color: yellow; }
+        tr.col2 { background: #ffa500; color: yellow; }
+        tr.col3 { background: yellow; }
+    </style>
+    <div class="create">
+    <center>
+
+    <h1>Create answer</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.text) }}<br><br>
+    <button type="submit">Create</button>
+    {{ form_end(form) }}
+    </center><br>
+
+{% endblock %}
