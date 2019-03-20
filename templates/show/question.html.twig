@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block toolbar%}
+    <li><a>||</a></li>
+    <li><a href="/gameshow/create/quiz/{{ quiz_id }}/create">Create questions</a> </li>
+{% endblock %}
+{% block body %}
+    <style type="text/css">
+        table {width: 100%; /* Ширина таблицы */}
+        td {padding: 5px;}
+        tr.col1 {background: #ffbf50;color: blue;}
+        tr.col2 {background: #ffa500;color: blue;}
+        tr.col3 {background: yellow;}
+    </style>
+
+    <h1 style="color: silver">Question table</h1>
+
+
+
+<table border="1">
+    <tr class="col2">
+        <th>Text</th>
+        <th>To Answers</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for question in questions %}
+        <tr class="col1">
+            <th>{{ question.text }}</th>
+            <th><a href="/gameshow/create/quiz/{{ quiz_id }}/question/{{ question.id }}" class="c">To Answers</a></th>
+            <th><a href="/gameshow/create/quiz/{{ quiz_id }}/question/{{ question.id }}/update" class="c">Update</a></th>
+            <th><a href="/gameshow/create/quiz/{{ quiz_id }}/question/{{ question.id }}/delete" class="c">Delete</a></th>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
