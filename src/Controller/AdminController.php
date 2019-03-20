@@ -42,7 +42,17 @@ class AdminController extends AbstractController
                 'quiz_id' => $quiz_id]);
     }
 
- 
-
+  /**
+     * @Route("/gameshow/create/quiz/{quiz_id}/question/{question_id}", name="show_admin_answers",
+     *     requirements={"quiz_id"="\d+", "question_id"="\d+"}))
+     */
+    public function showAnswers(int $quiz_id, int $question_id,
+                                Request $request, QuizRepository $quizRepository, QuestionRepository $questionRepository,
+                                AnswerRepository $answerRepository)
+    {
+        $answers = $answerRepository->findBy(['question' => $question_id]);
+        return $this->render('show/answer.html.twig', ['answers' => $answers, 'quiz_id' => $quiz_id,
+            'question_id' => $question_id]);
+    }
 
 }
