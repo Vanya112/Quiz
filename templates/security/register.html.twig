@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        .register {width: 200px; height: 30%; margin-left: 42%; background: #161616; box-shadow:0 0 8px 4px #161616; color:#989898;}
+        .h1 {color: #2020f8; text-shadow: 0 6px 8px black;}
+    </style>
+<br>
+<div class="register">
+    <center>
+        <div class="h1">
+            <h1>Register</h1>
+        </div>
+    {{ form_start(form) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword.first) }}
+    {{ form_row(form.plainPassword.second) }}<br>
+
+    <button type="submit">Register!</button><br><br>
+    {{ form_end(form) }}
+    </center>
+</div>
+
+{% endblock %}
