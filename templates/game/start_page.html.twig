@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <style type="text/css">
+        body {color:silver}
+        table {width: 100%;}
+        td { padding: 5px; }
+        tr.col1 { background: #ffbf50; color: yellow; }
+        tr.col2 { background: #ffa500; color: yellow; }
+        tr.col3 { background: yellow; }
+        input[type=button] {background-color: #383938; border: 4px black; color: #bab5b5; padding: 12px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px; box-shadow: 0 0 4px 2px #080707;}
+    </style>
+    <a href="/gameshow/quiz/{{ quiz_id }}/number/0/questions/{{ realnumber }}">
+    <input type="button" value="Get start">
+    </a>
+{% endblock %}
