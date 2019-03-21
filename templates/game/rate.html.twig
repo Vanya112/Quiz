@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <style type="text/css">
+        body {color:silver}
+        table {
+            width: 100%; /* Ширина таблицы */
+        }
+        td { padding: 5px; }
+        tr.col1 { background: #ffbf50; color: blue; }
+        tr.col2 { background: #ffa500; color: blue; }
+        tr.col3 { background: yellow; }
+    </style>
+    <table border="1">
+        <tr class="col2">
+            <th>Name</th>
+            <th>Time</th>
+            <th>Correct Answers</th>
+        </tr>
+        {% for game in games %}
+            <tr class="col1">
+                <th>{{ game.User.UserName }}</th>
+                <th>{{ game.time }} seconds</th>
+                <th>{{ game.CorrectQuestionsAmount }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
