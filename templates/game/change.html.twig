@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>{% block title %}{%endblock%} | Symfony 4 </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+{% block body %}
+    <style type="text/css">
+        body {
+            background: #dddddd;
+            font-size: 1.5em; /* Размер текста */
+            overflow: scroll;
+            color:black
+        }
+        table {
+            width: 50%; /* Ширина таблицы */
+        }
+        td { padding: 5px; }
+        tr.col1 { background: #ffbf50; color: yellow; }
+        tr.col2 { background: #ffa500; color: yellow; }
+        tr.col3 { background: yellow; }
+    </style>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Exit </a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/gameshow">MainMenu</a></li>
+                <li><a href="/gameshow/create">Admin</a></li>
+                <li><a href="/">Exit</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Configuration. Your status is change!</h1>
+
+
+{% endblock %}
+</html>
