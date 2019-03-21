@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <style type="text/css">
+        body {color:silver}
+        table {width: 100%;
+        }
+        td { padding: 5px; }
+        tr.col1 { background: #ffbf50; color: yellow; }
+        tr.col2 { background: #ffa500; color: yellow; }
+        tr.col3 { background: yellow; }
+    </style>
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Symfony4 Test </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="#">Main</a></li>
+            <li><a href="/gameshow">Main Menu</a></li>
+            <li><a href="/">Exit</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <h1><b>{{ question.text }}</b></h1>
+
+    {% for answer in answers %}
+        {% include('vectarin/field.html.twig') %}
+    {% endfor %}
+    </ul>
+    {{ form_start(form) }}
+    {{ form_row(form.text) }}
+
+    <button type="submit">Answer!</button>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
+</html>

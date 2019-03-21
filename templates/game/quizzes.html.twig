@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <style type="text/css">
+        body{color: silver;}
+        table {width: 100%;}
+        td { padding: 5px; }
+        tr.col1 { background: #ffbf50; color: blue; }
+        tr.col2 { background: #ffa500; color: blue; }
+        tr.col3 { background: yellow; }
+
+    </style>
+
+    <h1>Welcome in quiz</h1>
+
+
+
+    <table border="1">
+        <tr class="col2">
+            <th>Name</th>
+            <th>Description</th>
+            <th>Start</th>
+            <th>Rate</th>
+        </tr>
+            {% for quiz in quizzes %}
+        <tr class="col1">
+                <th>{{ quiz.name }}</th>
+                <th>{{ quiz.description }}</th>
+                <th><a href="/gameshow/quiz/{{ quiz.id }}/" class="c">Start</a></th>
+            <th><a href="/gameshow/rate/{{ quiz.id }}/quiz">Rate</a> </th>
+        </tr>
+            {% endfor %}
+    </table>
+
+{% endblock %}
