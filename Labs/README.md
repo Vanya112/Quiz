@@ -18,18 +18,18 @@
 * Аутентификация и авторизация
 ## 6. Диаграмма развёртывания
 
-![Images](Deployment.png)
+![](Images/Deployment.png)
 
 # "As is" архитектура
 # Часть 2
 
 ## 1. Диаграмма развёртывания
 
-![](Deployment.png)
+![](Images/Deployment.png)
 
 ## 2. Диаграмма классов
 
-![Images](diagram_of_classes.png)
+![](Images/diagram_of_classes.png)
 
 # Часть 3
 Архитектуры As is и To be в данном случае не отличаются. Приложение строилось по принципу не повторяйтесь и разделение функций.
