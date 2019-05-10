@@ -37,11 +37,11 @@
 
 До
 
-![](Images/Home1.png)
+![](Images/HomePage1.png)
 
 После
 
-![](Images/Home1.png)
+![](Images/HomePage2.png)
 
 Форма логина
 
